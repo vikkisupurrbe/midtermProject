@@ -1,6 +1,7 @@
 -- Drop and recreate Quizzes table
 
 DROP TABLE IF EXISTS quizzes CASCADE;
+
 CREATE TABLE quizzes (
   id SERIAL PRIMARY KEY NOT NULL,
   ower_id INTEGER REFERENCES users(id) ON DELETE CASCADE,

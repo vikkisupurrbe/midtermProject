@@ -1,3 +1,27 @@
--- Users table seeds here (Example)
-INSERT INTO users (name) VALUES ('Alice');
-INSERT INTO users (name) VALUES ('Kira');
+INSERT INTO users (name, email)
+VALUES
+('Alice Wonderland', 'alice@example.com'),
+('Bob Builder', 'bob@example.com'),
+('Charlie Chaplin', 'charlie@example.com'),
+('Diana Prince', 'diana@example.com'),
+('Ethan Hunt', 'ethan@example.com'),
+('Fiona Goode', 'fiona@example.com'),
+('George Weasley', 'george@example.com'),
+('Hannah Montana', 'hannah@example.com'),
+('Ian Malcolm', 'ian@example.com'),
+('Julia Roberts', 'julia@example.com'),
+('Kevin McCallister', 'kevin@example.com'),
+('Laura Croft', 'laura@example.com'),
+('Michael Jordan', 'michael@example.com'),
+('Nancy Drew', 'nancy@example.com'),
+('Oliver Twist', 'oliver@example.com'),
+('Penelope Cruz', 'penelope@example.com'),
+('Quentin Tarantino', 'quentin@example.com'),
+('Rachel Green', 'rachel@example.com'),
+('Steve Jobs', 'steve@example.com'),
+('Trinity Matrix', 'trinity@example.com'),
+('Ursula SeaWitch', 'ursula@example.com'),
+('Vincent Vega', 'vincent@example.com'),
+('Wendy Darling', 'wendy@example.com'),
+('Xavier Roberts', 'xavier@example.com'),
+('Ygritte Wildling', 'ygritte@example.com');
