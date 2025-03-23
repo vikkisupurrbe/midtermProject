@@ -3,7 +3,7 @@ VALUES
 (1, 'General Knowledge 101', 'A basic quiz on various topics.', TRUE),
 (2, 'Movie Trivia', 'Test your knowledge of classic films.', TRUE),
 (3, 'Science Quiz', 'Questions about physics, chemistry, and biology.', FALSE),
-(4, 'Pop Music Quiz', "From oldies to today's hits.", TRUE),
+(4, 'Pop Music Quiz', 'From oldies to today''s hits.', TRUE),
 (5, 'History of the World', 'A comprehensive history quiz.', FALSE),
 (6, 'Art and Literature', 'Test your artsy side!', TRUE),
 (7, 'Sports Fan Quiz', 'For the ultimate sports enthusiast.', TRUE),
