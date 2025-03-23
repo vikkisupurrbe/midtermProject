@@ -14,15 +14,14 @@
 
 const express = require('express');
 const router  = express.Router();
-const db = require('../db');
 
 // Get a list of public quizzes
-router.get("/quizzes", (req, res) => {
+router.get("/", (req, res) => {
   res.status(200).json({ message: "List of public quizzes" });
 });
 
 // Get public quizzes for the homepage
-router.get("/", (req, res) => {
+router.get("/public", (req, res) => {
   res.status(200).json({ message: "Homepage public quizzes" });
 });
 

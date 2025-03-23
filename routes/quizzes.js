@@ -13,15 +13,14 @@
 
 const express = require('express');
 const router  = express.Router();
-const db = require('../db');
 
 // Create a new quiz
-router.post("/quizzes/new", (req, res) => {
+router.post("/new", (req, res) => {
   res.status(201).json({ message: "Quiz created!" });
 });
 
 // Display form for a new quiz
-router.get("/quizzes/new", (req, res) => {
+router.get("/new", (req, res) => {
   res.status(200).json({ message: "Quiz creation form" });
 });
 

@@ -12,10 +12,9 @@
 
 const express = require('express');
 const router  = express.Router();
-const db = require('../db');
 
 // Submit quiz answers
-router.post("quizzes/:quiz_id/submit", (req, res) => {
+router.post("/:quiz_id/submit", (req, res) => {
   res.status(200).json({ message: `Quiz ${req.params.quiz_id} submitted` });
 });
 

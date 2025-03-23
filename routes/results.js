@@ -13,15 +13,14 @@
 
 const express = require('express');
 const router  = express.Router();
-const db = require('../db');
 
 // Get results for a quiz
-router.get("quizzes/:quiz_id/results", (req, res) => {
+router.get("/:quiz_id/results", (req, res) => {
   res.status(200).json({ message: `Results for quiz ${req.params.quiz_id}` });
 });
 
 // Get a specific quiz result by result_id, also for sharing
-router.get("quizzes/:quiz_id/results/:result_id", (req, res) => {
+router.get("/:quiz_id/results/:result_id", (req, res) => {
   res.status(200).json({ message: `Result ${req.params.result_id} for quiz ${req.params.quiz_id}` });
 });
 
