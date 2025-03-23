@@ -17,13 +17,13 @@ const getQuizById = function(id) {
     });
 };
 
-const createResult = function(quiz_id, user_id, total_questions, correct_answers, url_key) {
+const createResult = function(resultObj) {
   const queryString =
   `INSERT INTO results (quiz_id, user_id, total_questions, correct_answers, url_key)
    VALUES ($1, $2, $3, $4, $5)
    RETURNING *;
   `;
-  const queryArgs = [quiz_id, user_id, total_questions, correct_answers, url_key];
+  const queryArgs = [resultObj.quiz_id, resultObj.user_id, resultObj.total_questions, resultObj.correct_answers, resultObj.url_key];
 
   return db
     .query(queryString, queryArgs)

@@ -3,11 +3,11 @@
 // View public quizzes on the home page
 // Share a quiz
 
-/* Remember to create your feature branch before starting 
+/* Remember to create your feature branch before starting
   git command:
-  ~ git checkout -b feature/quiz-discovery-jumpei 
+  ~ git checkout -b feature/quiz-discovery-jumpei
     (create and switch to a new branch)
-  ~ git branch 
+  ~ git branch
     (gives feature/quiz-discovery-jumpei)
   ~ git push origin feature/quiz-discovery-jumpei
 */
@@ -27,7 +27,7 @@ router.get("/public", (req, res) => {
 
 // Get a specific quiz by ID
 router.get("/:quiz_id", (req, res) => {
-  res.status(200).json({ message: `Quiz ${req.params.quiz_id} details` });
+  res.status(200).json({ message: `Quiz ${req.params.quiz_id} details...` });
 });
 
 module.exports = router;
