@@ -19,16 +19,18 @@ app.use(express.static('public'));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
+const quizRoutes = require('./routes/quizzes');   // Quiz creation & management (Vikki)
+const discoveryRoutes = require('./routes/discovery');  // Quiz listing & sharing (Jumpei)
+const attemptRoutes = require('./routes/attempts');    // Quiz attempts (Ale)
+const resultsRoutes = require('./routes/results');    // Quiz results (Ale)
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use('/quizzes', quizRoutes);  
+app.use('/quizzes', discoveryRoutes);
+app.use('/quizzes', attemptRoutes);
+app.use('/quizzes', resultsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
