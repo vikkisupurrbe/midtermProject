@@ -4,6 +4,7 @@ require('dotenv').config();
 // Web server config
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -16,6 +17,13 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: ['secretkey'],
+    maxAge: 24 * 60 * 60 * 1000,
+  })
+);
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
