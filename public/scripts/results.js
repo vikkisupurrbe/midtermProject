@@ -3,7 +3,7 @@ $(document).ready(function() {
   const loadResults = function() {
     const url_key = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
     $.ajax({
-      url: `/quizzes/api/results/${url_key}`, // the endpoint to fetch data from
+      url: `/api/results/${url_key}`, // the endpoint to fetch data from
       type: 'GET',
       dataType: 'json',   // the expected response type
       success: function(response) {

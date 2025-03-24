@@ -14,15 +14,22 @@
 const express = require('express');
 const router  = express.Router();
 
+const dbQuizzes = require('../db/queries/quizzes');
 
-router.post("/results", (req, res) => {
-  return res.redirect("quizzes");
-});
-
-
+// Get result by url_key, also for sharing
 router.get("/results/:url_key", (req, res) => {
+  const url_key = req.params.url_key;
+  if (!url_key) {
+    return res.redirect("quizzes");
+  }
 
-  res.render('results');
+  dbQuizzes
+    .getResultsByUrl(url_key)
+    .then((results) => res.send({ results }))
+    .catch((e) => {
+      console.error(e);
+      res.send(e);
+    });
 });
 
 
