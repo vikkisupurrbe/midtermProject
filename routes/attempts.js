@@ -12,21 +12,35 @@
 
 const express = require('express');
 const router  = express.Router();
+const dbQuizzes = require('../db/queries/attempts');
 
 // Submit quiz answers
-router.post("/api/attempt/submit", (req, res) => {
-  res.status(200).json({ message: `Quiz ${req.params.quiz_id} submitted` });
-});
+// router.post("/api/attempt/submit", (req, res) => {
+//   res.status(200).json({ message: `Quiz ${req.params.quiz_id} submitted` });
+// });
 
 
-router.get("/api/attempt/:quiz_id", (req, res) => {
+// router.get("/api/attempt/:quiz_id", (req, res) => {
 
-  res.status(200).json({ message: `attempt API` });
-});
+//   res.status(200).json({ message: `attempt API` });
+// });
 
 router.get("/attempt/:quiz_id", (req, res) => {
+  const quiz_id = req.params.quiz_id;
+  if (!quiz_id) {
+    return res.redirect("quizzes");
+  }
 
-  res.render('attempt');
+  dbQuizzes
+    .getQuizTemplate(quiz_id)
+    .then((results) => {
+      const templateVars = { results };
+      //res.send(results);
+      res.render('attempt', templateVars);
+    })
+    .catch((e) => {
+      console.error(e);
+    });
 });
 
 

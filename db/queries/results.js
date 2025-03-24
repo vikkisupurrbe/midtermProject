@@ -20,7 +20,7 @@ const createResult = function(resultObj) {
 
 const getResultsByUrl = function(url_key) {
   const queryString =
-  `SELECT correct_answers, quizzes.title, COUNT(questions.id) AS total_questions,
+  `SELECT correct_answers, quizzes.id, quizzes.title, COUNT(questions.id) AS total_questions,
     CASE
     WHEN users.name IS NOT NULL THEN users.name
     WHEN results.name IS NOT NULL THEN results.name
@@ -35,7 +35,7 @@ END AS name
    LEFT JOIN users
    ON users.id = user_id
    WHERE url_key = $1
-   GROUP BY 1, 2, 4;
+   GROUP BY 1, 2, 3, 5;
   `;
   const queryArgs = [url_key];
 
