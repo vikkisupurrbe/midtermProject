@@ -24,9 +24,11 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000,
   })
 );
+app.use(express.json()); 
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+const userRoutes = require('./routes/users'); // User login, logout
 const quizRoutes = require('./routes/quizzes');   // Quiz creation & management (Vikki)
 const discoveryRoutes = require('./routes/discovery');  // Quiz listing & sharing (Jumpei)
 const attemptRoutes = require('./routes/attempts');    // Quiz attempts (Ale)
@@ -40,6 +42,7 @@ app.use('/quizzes', quizRoutes);
 app.use('/quizzes', discoveryRoutes);
 app.use('/quizzes', attemptRoutes);
 app.use('/quizzes', resultsRoutes);
+app.use('/', userRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
