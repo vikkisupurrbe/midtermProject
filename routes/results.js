@@ -13,6 +13,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const dbQuizzes = require('../db/queries/results');
 
 
 router.post("/results", (req, res) => {
@@ -21,8 +22,21 @@ router.post("/results", (req, res) => {
 
 
 router.get("/results/:url_key", (req, res) => {
+  const url_key = req.params.url_key;
+  if (!url_key) {
+    return res.redirect("quizzes");
+  }
 
-  res.render('results');
+  dbQuizzes
+    .getResultsByUrl(url_key)
+    .then((results) => {
+      const templateVars = { results };
+      res.render('results', templateVars);
+    })
+    .catch((e) => {
+      console.error(e);
+      res.render('results');
+    });
 });
 
 

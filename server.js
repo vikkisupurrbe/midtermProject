@@ -23,7 +23,6 @@ const quizRoutes = require('./routes/quizzes');   // Quiz creation & management 
 const discoveryRoutes = require('./routes/discovery');  // Quiz listing & sharing (Jumpei)
 const attemptRoutes = require('./routes/attempts');    // Quiz attempts (Ale)
 const resultsRoutes = require('./routes/results');    // Quiz results (Ale)
-const resultsApiRoutes = require('./routes/results-api');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -35,7 +34,7 @@ app.use('/quizzes', attemptRoutes);
 app.use('/quizzes', resultsRoutes);
 
 // Note: mount other resources here, using the same pattern above
-app.use('/api', resultsApiRoutes);
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
