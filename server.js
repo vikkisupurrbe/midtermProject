@@ -28,10 +28,11 @@ const resultsRoutes = require('./routes/results');    // Quiz results (Ale)
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 // Note: Routes are prefixed with /quizzes
-app.use('/quizzes', quizRoutes);  
+app.use('/quizzes', quizRoutes);
 app.use('/quizzes', discoveryRoutes);
 app.use('/quizzes', attemptRoutes);
 app.use('/quizzes', resultsRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
