@@ -13,7 +13,7 @@
 */
 
 const express = require("express");
-const { getQuizById } = require("../db/queries/quizzes");
+const { getQuizById, getAllQuizzes } = require("../db/queries/quizzes");
 const router = express.Router();
 
 // Home page
@@ -25,7 +25,11 @@ router.get("/", (req, res) => {
 
 // Get a list of public quizzes
 router.get("/quizzes", (req, res) => {
-  res.status(200).json({ message: "List of public quizzes" });
+  return getAllQuizzes().then((result) => {
+    console.log(result);
+    const templateVars = { result };
+    return res.render("quizzes", templateVars);
+  });
 });
 
 // Get a specific quiz by ID

@@ -1,8 +1,10 @@
 const db = require("../connection");
 
 const getAllQuizzes = () => {
-  return db.query("SELECT * FROM quizzes;").then((data) => {
-    return data.rows;
+  const queryString = "SELECT * FROM quizzes WHERE is_public = TRUE;";
+
+  return db.query(queryString).then((result) => {
+    return result.rows;
   });
 };
 
