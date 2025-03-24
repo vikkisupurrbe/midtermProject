@@ -1,10 +1,22 @@
 const db = require('../connection');
 
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
+// Get a user by email
+const getUserWithEmail = function (email) {
+
+  const queryString = `
+    SELECT *
+    FROM users
+    WHERE email = $1
+    LIMIT 1;
+  `;
+
+  return db
+    .query(queryString, [email])
+    .then((result) => (result.rows.length ? result.rows[0] : null))
+    .catch((err) => {
+      console.error("Error fetching user by email:", err.message);
+      return null;
     });
 };
 
-module.exports = { getUsers };
+module.exports = { getUserWithEmail };
