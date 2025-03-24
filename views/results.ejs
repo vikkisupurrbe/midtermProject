@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quiz</title>
+    <title>Results</title>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,12 +14,14 @@
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
+    <script defer src="/scripts/results.js"></script>
   </head>
 
   <body>
-    <P><%= title%></P>
-    <p><%= description %></p>
-    <a href="<% url %>">copy this link to share</a>
-    <button>attempt quizz</button>
+    <h1>Results! 🥔</h1>
+    <h1><label id="title"></label></h1>
+    <label id="name"></label>
+    <label id="correct-answers"></label>/
+    <label id="total-questions"></label>
   </body>
 </html>
