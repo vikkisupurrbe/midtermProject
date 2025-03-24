@@ -13,20 +13,26 @@
 */
 
 const express = require("express");
-const { getQuizById, getAllQuizzes } = require("../db/queries/quizzes");
+const {
+  getQuizById,
+  getAllQuizzes,
+  getLatestQuizzes,
+} = require("../db/queries/quizzes");
 const router = express.Router();
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 router.get("/", (req, res) => {
-  res.render("index");
+  return getLatestQuizzes().then((result) => {
+    const templateVars = { result };
+    return res.render("index", templateVars);
+  });
 });
 
 // Get a list of public quizzes
 router.get("/quizzes", (req, res) => {
   return getAllQuizzes().then((result) => {
-    console.log(result);
     const templateVars = { result };
     return res.render("quizzes", templateVars);
   });

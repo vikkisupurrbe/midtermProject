@@ -8,6 +8,16 @@ const getAllQuizzes = () => {
   });
 };
 
+const getLatestQuizzes = (limit = 7) => {
+  const queryString =
+    "SELECT * FROM quizzes WHERE is_public = TRUE ORDER BY id DESC  LIMIT $1;";
+  const queryArgs = [limit];
+
+  return db.query(queryString, queryArgs).then((result) => {
+    return result.rows;
+  });
+};
+
 const getQuizById = function (id) {
   const queryString = `SELECT *
    FROM quizzes
@@ -63,4 +73,10 @@ const getResultsByUrl = function (url_key) {
     });
 };
 
-module.exports = { getAllQuizzes, getQuizById, getResultsByUrl, createResult };
+module.exports = {
+  getAllQuizzes,
+  getLatestQuizzes,
+  getQuizById,
+  getResultsByUrl,
+  createResult,
+};

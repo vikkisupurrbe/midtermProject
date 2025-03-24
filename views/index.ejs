@@ -29,27 +29,12 @@
       </section>
 
       <section class="list-of-quizzes">
+        <% for (const quiz of result) { %>
+
         <div>
-          <p>title</p>
+          <a href="/quizzes/<%= quiz.id %>"><%= quiz.title %></a>
         </div>
-        <div>
-          <p>title</p>
-        </div>
-        <div>
-          <p>title</p>
-        </div>
-        <div>
-          <p>title</p>
-        </div>
-        <div>
-          <p>title</p>
-        </div>
-        <div>
-          <p>title</p>
-        </div>
-        <div>
-          <p>title</p>
-        </div>
+        <% } %>
 
         <button>More quizzes</button>
       </section>
