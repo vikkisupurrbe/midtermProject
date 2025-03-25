@@ -13,9 +13,10 @@
 
 const express = require('express');
 const router  = express.Router();
+const dbCreateNewQuiz = require('../db/queries/createNewQuiz');
 
 // Create a new quiz
-router.post("/new", (req, res) => {
+router.post("/", (req, res) => {
   res.status(201).json({ message: "Quiz created!" });
 });
 
