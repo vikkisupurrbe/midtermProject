@@ -13,15 +13,15 @@
 
 const express = require('express');
 const router  = express.Router();
+const dbQuizzes = require('../db/queries/results');
 
-const dbQuizzes = require('../db/queries/quizzes');
 
 router.post("/results", (req, res) => {
   return res.redirect("quizzes");
 });
 
-// Get result by url_key, also for sharing
-router.get("/api/results/:url_key", (req, res) => {
+
+router.get("/results/:url_key", (req, res) => {
   const url_key = req.params.url_key;
   if (!url_key) {
     return res.redirect("quizzes");
@@ -29,16 +29,14 @@ router.get("/api/results/:url_key", (req, res) => {
 
   dbQuizzes
     .getResultsByUrl(url_key)
-    .then((results) => res.send({ results }))
+    .then((results) => {
+      const templateVars = { results };
+      res.render('results', templateVars);
+    })
     .catch((e) => {
       console.error(e);
-      res.send(e);
+      res.render('results');
     });
-});
-
-router.get("/results/:url_key", (req, res) => {
-
-  res.render('results');
 });
 
 
