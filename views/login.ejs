@@ -28,7 +28,7 @@
     <p>Welcome, <%= user.email %>! You are logged in.</p>
   <% } %>
 
-  <form action="/login" method="POST">
+  <form action="/users/login" method="POST">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Login</button>
   </form>

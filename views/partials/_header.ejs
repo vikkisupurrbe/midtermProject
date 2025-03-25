@@ -2,11 +2,11 @@
   <nav>
     <% if (user) { %>
       <p>Logged in as <%= user.email %></p>
-      <form action="/logout" method="POST">
+      <form action="/users/logout" method="POST">
         <button type="submit">Logout</button>
       </form>
     <% } else { %>
-      <a href="/login">Login</a>
+      <a href="/users/login">Login</a>
     <% } %>
   </nav>
 </header>
