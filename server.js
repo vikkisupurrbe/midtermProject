@@ -26,7 +26,7 @@ app.use(
 );
 app.use(express.json()); 
 app.use((req, res, next) => {
-  // If user is logged in, fetch their full details
+  // Middleware, if user is logged in, fetch their full details
   if (req.session && req.session.userId) {
     const dbUsers = require('./db/queries/users'); 
     dbUsers.getUserById(req.session.userId)

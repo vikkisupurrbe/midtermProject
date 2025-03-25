@@ -1,7 +1,6 @@
 // User login, logout - Vikki
 // Log in
 // Log out
-// Get current logged-in user info
 
 const express = require('express');
 const router  = express.Router();
