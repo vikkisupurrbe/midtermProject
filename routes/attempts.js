@@ -12,7 +12,9 @@
 
 const express = require('express');
 const router  = express.Router();
-const dbQuizzes = require('../db/queries/attempts');
+const dbAttempts = require('../db/queries/attempts');
+//const dbResults = require('../db/queries/results');
+
 
 // Submit quiz answers
 // router.post("/api/attempt/submit", (req, res) => {
@@ -26,7 +28,35 @@ const dbQuizzes = require('../db/queries/attempts');
 // });
 
 router.post("/attempt/:quiz_id", (req, res) => {
-  return res.redirect('/quizzes/results/vWxYz1a2b3'); //example url just to redirect
+  const quizId = req.params.quiz_id;
+  const userAnswers = Object.values(req.body);
+  let correctAnswers = 0;
+  let url_key = 'random';
+
+  //get user_id if logged in or input to write name conditional
+  dbAttempts
+    .getCorrectAnswers(quizId, userAnswers)
+    .then((results) => {
+      correctAnswers = results.count;
+      //dbResults
+      //crear un objeto {
+      // quiz_id,
+      // user_id,
+      // name,
+      // correct_answers,
+      // url_key,
+      //}
+      // mandar llamar a createResults
+
+
+      console.log('correct answers', correctAnswers);
+      //res.send(results);
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+
+  return res.redirect(`/quizzes/results/${url_key}`); //example url just to redirect
 });
 
 router.get("/attempt/:quiz_id", (req, res) => {
@@ -35,11 +65,10 @@ router.get("/attempt/:quiz_id", (req, res) => {
     return res.redirect("quizzes");
   }
 
-  dbQuizzes
+  dbAttempts
     .getQuizTemplate(quiz_id)
     .then((results) => {
       const templateVars = { results };
-      //res.send(results);
       res.render('attempt', templateVars);
     })
     .catch((e) => {

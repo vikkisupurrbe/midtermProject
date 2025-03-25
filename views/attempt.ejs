@@ -19,7 +19,7 @@
   <body>
     <form
       method="POST"
-      action="/quizzes/attempt/<%=results.quiz_data.quiz_id%>"
+      action="/quizzes/attempt/<%= results.quiz_data.quiz_id %>"
     >
       <h1 id="title"><%= results.quiz_data.quiz_title %></h1>
       <label id="description"><%= results.quiz_data.quiz_description %></label>

@@ -42,5 +42,26 @@ WHERE quizzes.id = $1;
     });
 };
 
+const getCorrectAnswers = function(quiz_id, userAnswers) {
+  const queryString =
+  `SELECT COUNT(*)
+  FROM answers
+  JOIN questions
+  ON questions.id = question_id
+  WHERE is_correct = TRUE
+  AND quiz_id = $1
+  AND answers.id = ANY ($2);
+`;
 
-module.exports = { getQuizTemplate };
+  const queryArgs = [quiz_id, userAnswers];
+
+  return db
+    .query(queryString, queryArgs)
+    .then((result) => result.rows[0])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+
+module.exports = { getQuizTemplate, getCorrectAnswers };
