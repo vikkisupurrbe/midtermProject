@@ -17,10 +17,11 @@ const dbQuizzes = require('../db/queries/results');
 
 
 router.post("/results", (req, res) => {
+
   return res.redirect("quizzes");
 });
 
-
+// Fetching results page
 router.get("/results/:url_key", (req, res) => {
   const url_key = req.params.url_key;
   if (!url_key) {

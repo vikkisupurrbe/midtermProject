@@ -14,14 +14,36 @@
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
-    <script defer src="/scripts/results.js"></script>
   </head>
 
   <body>
-    <h1>Attempt! 🥔</h1>
-    <h1><label id="title"></label></h1>
-    <label id="name"></label>
-    <label id="correct-answers"></label>/
-    <label id="total-questions"></label>
+    <form
+      method="POST"
+      action="/quizzes/attempt/<%= results.quiz_data.quiz_id %>"
+    >
+      <h1 id="title"><%= results.quiz_data.quiz_title %></h1>
+      <label id="description"><%= results.quiz_data.quiz_description %></label>
+      <div class="quizz-container">
+        <fieldset>
+          <% for(let question of results.quiz_data.questions) { %>
+          <legend><%= question.question_text %></legend>
+          <% for(let answer of question.answers) { %>
+          <div>
+            <input
+              type="radio"
+              id="<%= answer.answer_id %>"
+              name="question_<%= question.question_id %>"
+              value="<%= answer.answer_id %>"
+            />
+            <label for="<%= answer.answer_id %>"
+              ><%= answer.answer_text %></label
+            >
+            <% } %>
+          </div>
+          <% } %>
+        </fieldset>
+        <button type="submit">Get my results!</button>
+      </div>
+    </form>
   </body>
 </html>
