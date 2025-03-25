@@ -18,13 +18,16 @@
   </head>
 
   <body>
+    <%- include('partials/_header') %>
+    <!-- Include the header -->
+
     <h1>List of Quizzes</h1>
 
     <% for (const quiz of result) { %>
     <div>
       <header><%= quiz.title %></header>
       <article><%= quiz.description %></article>
-      <p>Created by username?</p>
+      <p>Creator: <%= quiz.username %></p>
       <footer>
         <a href="/quizzes/<%= quiz.id%>">take this quiz</a>
       </footer>
