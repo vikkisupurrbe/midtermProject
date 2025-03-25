@@ -17,6 +17,7 @@
   </head>
 
   <body>
+    <%- include('partials/_header') %>
     <form
       method="POST"
       action="/quizzes/attempt/<%= results.quiz_data.quiz_id %>"
