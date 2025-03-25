@@ -19,4 +19,22 @@ const getUserWithEmail = function (email) {
     });
 };
 
-module.exports = { getUserWithEmail };
+// Get a user by id
+const getUserById = function(id) {
+  const queryString = `
+    SELECT *
+    FROM users
+    WHERE id = $1
+    LIMIT 1;
+  `;
+
+  return db
+    .query(queryString, [id])
+    .then((result) => (result.rows.length ? result.rows[0] : null))
+    .catch((err) => {
+      console.error("Error fetching user by ID:", err.message);
+      return null;
+    });
+};
+
+module.exports = { getUserWithEmail, getUserById };
