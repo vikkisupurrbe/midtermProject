@@ -31,7 +31,7 @@ const getResultsByUrl = function(url_key) {
     quizzes.id AS quiz_id,
     quizzes.title,
     COUNT(questions.id) AS total_questions,
-    COALESCE(users.name, results.name) AS name  -- Uses users.name if available, otherwise results.name
+    COALESCE(users.name, results.name) AS name
   FROM results
   JOIN quizzes ON quizzes.id = results.quiz_id
   JOIN questions ON quizzes.id = questions.quiz_id

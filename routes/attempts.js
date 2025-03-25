@@ -26,15 +26,15 @@ router.post("/attempt/:quiz_id", (req, res) => {
 
   let userId = null;
   let userName = req.body.name || "Anonymous";
-  if (req.session && req.session.user_id) {
-    userId = req.session.user_id; // use session cookie if the user is logged in
+  if (req.session && req.session.userId) {
+    userId = req.session.userId; // use session cookie if the user is logged in
     userName = null; // ff logged in, don't store their name manually
   }
 
   //get user_id if logged in or input to write name conditional
   dbAttempts.getCorrectAnswers(quizId, userAnswers)
     .then((results) => {
-      const correctAnswers = results.count || 0; // ensure we always have a valid number
+      correctAnswers = results.count; //change number based on answers
 
       // insert a result in the db
       const resultObj = {

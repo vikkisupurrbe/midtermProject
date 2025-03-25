@@ -13,16 +13,19 @@
     <link rel="stylesheet" href="/styles/layout.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script defer src="/scripts/app.js"></script>
+    <script defer src="/scripts/share_results.js"></script>
+    <script>const quizURL = `/quizzes/attempt/<%= results.quiz_id %>` </script>
   </head>
 
   <body>
-    <h1>Results! 🥔</h1>
-    <h1><label id="title"><%= results.title %></label></h1>
+    <%- include('partials/_header') %>
+    <h1>Here are your results for</h1>
+    <h3><label id="title"><%= results.title %></label></h3x>
     <label id="name"><%= results.name %></label>
     <label id="correct-answers"><%= results.correct_answers %></label>/
     <label id="total-questions"><%= results.total_questions %></label>
-    <button>Share my results</button>
+
+    <button id="share-results">Share my results</button>
   </body>
-  <footer><button>Share this quizz!</button></footer>
+  <footer><button id="share-quiz">Share this quizz!</button></footer>
 </html>
