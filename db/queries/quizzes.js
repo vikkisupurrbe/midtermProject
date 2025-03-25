@@ -1,8 +1,25 @@
-const db = require('../connection');
+const db = require("../connection");
 
-const getQuizById = function(id) {
+const getAllQuizzes = () => {
+  const queryString = "SELECT * FROM quizzes WHERE is_public = TRUE;";
+
+  return db.query(queryString).then((result) => {
+    return result.rows;
+  });
+};
+
+const getLatestQuizzes = (limit = 7) => {
   const queryString =
-  `SELECT *
+    "SELECT * FROM quizzes WHERE is_public = TRUE ORDER BY id DESC  LIMIT $1;";
+  const queryArgs = [limit];
+
+  return db.query(queryString, queryArgs).then((result) => {
+    return result.rows;
+  });
+};
+
+const getQuizById = function (id) {
+  const queryString = `SELECT *
    FROM quizzes
    WHERE id = $1;
   `;
@@ -10,12 +27,10 @@ const getQuizById = function(id) {
 
   return db
     .query(queryString, queryArgs)
-    .then((result) => result.rows.length > 0 ?
-      result.rows[0] : null)
+    .then((result) => (result.rows.length > 0 ? result.rows[0] : null))
     .catch((err) => {
       console.log(err.message);
     });
 };
 
-
-module.exports = { getQuizById };
+module.exports = { getAllQuizzes, getQuizById, getLatestQuizzes };

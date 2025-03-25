@@ -12,22 +12,39 @@
   ~ git push origin feature/quiz-discovery-jumpei
 */
 
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const {
+  getQuizById,
+  getAllQuizzes,
+  getLatestQuizzes,
+} = require("../db/queries/quizzes");
+const router = express.Router();
 
-// Get a list of public quizzes
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
 router.get("/", (req, res) => {
-  res.status(200).json({ message: "List of public quizzes" });
+  return getLatestQuizzes().then((result) => {
+    const templateVars = { result };
+    return res.render("index", templateVars);
+  });
 });
 
-// Get public quizzes for the homepage
-router.get("/public", (req, res) => {
-  res.status(200).json({ message: "Homepage public quizzes" });
+// Get a list of public quizzes
+router.get("/quizzes", (req, res) => {
+  return getAllQuizzes().then((result) => {
+    const templateVars = { result };
+    return res.render("quizzes", templateVars);
+  });
 });
 
 // Get a specific quiz by ID
-router.get("/:quiz_id", (req, res) => {
-  res.status(200).json({ message: `Quiz ${req.params.quiz_id} details...` });
+router.get("/quizzes/:quiz_id", (req, res) => {
+  const quiz_id = req.params.quiz_id;
+  return getQuizById(quiz_id).then((result) => {
+    const templateVars = result;
+    return res.render("quiz", templateVars);
+  });
 });
 
 module.exports = router;
