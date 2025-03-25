@@ -1,7 +1,8 @@
 const db = require("../connection");
 
 const getAllQuizzes = () => {
-  const queryString = "SELECT * FROM quizzes WHERE is_public = TRUE;";
+  const queryString =
+    "SELECT quizzes.*, users.name as username FROM quizzes JOIN users ON users.id = owner_id WHERE quizzes.is_public = TRUE;";
 
   return db.query(queryString).then((result) => {
     return result.rows;
