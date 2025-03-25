@@ -21,8 +21,6 @@ const {
 const router = express.Router();
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 router.get("/", (req, res) => {
   return getLatestQuizzes().then((result) => {
     const templateVars = { result };
@@ -41,10 +39,7 @@ router.get("/quizzes", (req, res) => {
 // Get a specific quiz by ID
 router.get("/quizzes/:quiz_id", (req, res) => {
   const quiz_id = req.params.quiz_id;
-  return getQuizById(quiz_id).then((result) => {
-    const templateVars = result;
-    return res.render("quiz", templateVars);
-  });
+  return res.redirect(`/quizzes/attempt/${quiz_id}`);
 });
 
 module.exports = router;

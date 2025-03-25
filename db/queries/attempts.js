@@ -1,8 +1,7 @@
-const db = require('../connection');
+const db = require("../connection");
 
-const getQuizTemplate = function(quizId) {
-  const queryString =
-  `SELECT json_build_object(
+const getQuizTemplate = function (quizId) {
+  const queryString = `SELECT json_build_object(
   'quiz_id', quizzes.id,
   'quiz_title', quizzes.title,
   'quiz_description', quizzes.description,
@@ -35,16 +34,14 @@ WHERE quizzes.id = $1;
 
   return db
     .query(queryString, queryArgs)
-    .then((result) => result.rows.length > 0 ?
-      result.rows[0] : null)
+    .then((result) => (result.rows.length > 0 ? result.rows[0] : null))
     .catch((err) => {
       console.log(err.message);
     });
 };
 
-const getCorrectAnswers = function(quiz_id, userAnswers) {
-  const queryString =
-  `SELECT COUNT(*)
+const getCorrectAnswers = function (quiz_id, userAnswers) {
+  const queryString = `SELECT COUNT(*)
   FROM answers
   JOIN questions
   ON questions.id = question_id
@@ -62,6 +59,5 @@ const getCorrectAnswers = function(quiz_id, userAnswers) {
       console.log(err.message);
     });
 };
-
 
 module.exports = { getQuizTemplate, getCorrectAnswers };
