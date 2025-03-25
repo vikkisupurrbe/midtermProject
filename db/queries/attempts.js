@@ -50,14 +50,14 @@ const getCorrectAnswers = function(quiz_id, userAnswers) {
   ON questions.id = question_id
   WHERE is_correct = TRUE
   AND quiz_id = $1
-  AND answers.id = ANY ($2);
+  AND answers.id = ANY ($2::int[]);
 `;
 
   const queryArgs = [quiz_id, userAnswers];
 
   return db
     .query(queryString, queryArgs)
-    .then((result) => result.rows[0])
+    .then((result) => result.rows[0] || { count: 0 }) // Ensure we return a valid count
     .catch((err) => {
       console.log(err.message);
     });
