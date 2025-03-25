@@ -3,6 +3,7 @@ const db = require('../connection');
 const getQuizTemplate = function(quizId) {
   const queryString =
   `SELECT json_build_object(
+  'quiz_id', quizzes.id,
   'quiz_title', quizzes.title,
   'quiz_description', quizzes.description,
   'questions', (

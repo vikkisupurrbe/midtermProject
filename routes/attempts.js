@@ -25,6 +25,10 @@ const dbQuizzes = require('../db/queries/attempts');
 //   res.status(200).json({ message: `attempt API` });
 // });
 
+router.post("/attempt/:quiz_id", (req, res) => {
+  return res.redirect('/quizzes/results/vWxYz1a2b3'); //example url just to redirect
+});
+
 router.get("/attempt/:quiz_id", (req, res) => {
   const quiz_id = req.params.quiz_id;
   if (!quiz_id) {
