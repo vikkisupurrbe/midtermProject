@@ -1,13 +1,17 @@
-const db = require('../connection');
+const db = require("../connection");
 
-
-const createResult = function(resultObj) {
-  const queryString =
-  `INSERT INTO results (quiz_id, user_id, name, correct_answers, url_key)
+const createResult = function (resultObj) {
+  const queryString = `INSERT INTO results (quiz_id, user_id, name, correct_answers, url_key)
    VALUES ($1, $2, $3, $4, $5)
    RETURNING *;
   `;
-  const queryArgs = [resultObj.quiz_id, resultObj.user_id, resultObj.name, resultObj.correct_answers, resultObj.url_key];
+  const queryArgs = [
+    resultObj.quiz_id,
+    resultObj.user_id,
+    resultObj.name,
+    resultObj.correct_answers,
+    resultObj.url_key,
+  ];
 
   return db
     .query(queryString, queryArgs)
@@ -17,10 +21,8 @@ const createResult = function(resultObj) {
     });
 };
 
-
-const getResultsByUrl = function(url_key) {
-  const queryString =
-  `SELECT correct_answers, quizzes.title, COUNT(questions.id) AS total_questions,
+const getResultsByUrl = function (url_key) {
+  const queryString = `SELECT correct_answers, quizzes.title, COUNT(questions.id) AS total_questions,
     CASE
     WHEN users.name IS NOT NULL THEN users.name
     WHEN results.name IS NOT NULL THEN results.name
@@ -41,8 +43,7 @@ END AS name
 
   return db
     .query(queryString, queryArgs)
-    .then((result) => result.rows.length > 0 ?
-      result.rows[0] : null)
+    .then((result) => (result.rows.length > 0 ? result.rows[0] : null))
     .catch((err) => {
       console.log(err.message);
     });
