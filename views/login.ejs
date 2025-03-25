@@ -18,12 +18,14 @@
 </head>
 
 <body>
+  <%- include('partials/_header') %>  <!-- Include the header -->
+
   <% if (error) { %>
-    <p style="color: red;"><%= error %></p>
+    <p><%= error %></p>
   <% } %>
 
   <% if (user) { %>
-    <p style="color: green;">Welcome, <%= user.email %>! You are logged in.</p>
+    <p>Welcome, <%= user.email %>! You are logged in.</p>
   <% } %>
 
   <form action="/login" method="POST">

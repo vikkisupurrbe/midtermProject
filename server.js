@@ -25,6 +25,24 @@ app.use(
   })
 );
 app.use(express.json()); 
+app.use((req, res, next) => {
+  // If user is logged in, fetch their full details
+  if (req.session && req.session.userId) {
+    const dbUsers = require('./db/queries/users'); 
+    dbUsers.getUserById(req.session.userId)
+      .then(user => {
+        res.locals.user = user;
+        next();
+      })
+      .catch(err => {
+        res.locals.user = null;
+        next();
+      });
+  } else {
+    res.locals.user = null;
+    next();
+  }
+});
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own

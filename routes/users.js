@@ -17,33 +17,33 @@ router.get('/login', (req, res) => {
 
 // Log in an existing user
 router.post('/login', (req, res) => {
-  console.log('Login Request Body:', req.body);
-  console.log('Current Session:', req.session);
   const { email } = req.body;
+  
+  // Validate email
   if (!email) {
-    return res.render("login", { 
+    return res.status(403).render("login", { 
       error: "Email is required",
       user: null 
-    }); 
+    });
   }
 
   dbUsers.getUserWithEmail(email)
     .then(user => {
+      // Check if user exists
       if (!user) {
-        req.session = null;
-        return res.render("login", { 
+        return res.status(404).render("login", { 
           error: "No user with that email",
           user: null 
         });
       }
 
       req.session.userId = user.id; // Store user id in session
-      console.log('Session after login:', req.session);
-      res.redirect('/me');
+      res.redirect('/');
     })
-    .catch (err => {
+    .catch(err => {
+      // Handle any database or server errors
       console.error("Login error:", err);
-      res.render("login", { 
+      return res.status(500).render("login", { 
         error: "Server error",
         user: null 
       });
@@ -54,27 +54,6 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
   req.session = null;
   res.redirect('/');
-});
-
-// Get current logged in user info
-router.get('/me', (req, res) => {
-  console.log('Current Session in /me:', req.session); // Add this line
-  if (!req.session.userId) {
-    return res.status(401).json({ message: "Not logged in"});
-  }
-
-  dbUsers.getUserById(req.session.userId)
-    .then(user => {
-      if (!user) {
-        req.session = null;
-        return res.status(404).json({ error: "User not found" });
-      }
-      res.json({ user });
-    })
-    .catch(err => {
-      console.error("Error fetching current user:", err);
-      res.status(500).json({ error: "Server error" });
-    });
 });
 
 module.exports = router;
