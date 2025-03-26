@@ -1,15 +1,26 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Gidole&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
 <header>
   <nav>
+    <div class="left-nav">
       <a href="*">My quizzes</a>
       <a href="/">Home</a>
-
-    <% if (user) { %>
+    </div>
+    <div class="right-nav">
+      <% if (user) { %>
       <p>Logged in as <%= user.email %></p>
       <form action="/users/logout" method="POST">
         <button type="submit">Logout</button>
       </form>
-    <% } else { %>
+      <% } else { %>
       <a href="/users/login">Login</a>
-    <% } %>
+      <% } %>
+    </div>
   </nav>
 </header>
