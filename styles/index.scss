@@ -35,6 +35,8 @@ main {
       font-weight: 400;
       font-style: normal;
 
+      font-size: 4em;
+
       letter-spacing: 0.2em;
 
       display: inline-block;
@@ -44,8 +46,6 @@ main {
       color: $orange-button;
       text-shadow: 1px 1px 1px $primary-color, -1px 1px 1px $primary-color,
         1px -1px 1px $primary-color, -1px 1px 1px $primary-color;
-
-      font-size: 4em;
 
       /* margin: 3em; */
       padding: 0.5em 2.5em;
