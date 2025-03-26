@@ -1,0 +1,136 @@
+$font-text: "Gidole", sans-serif;
+$font-title: "Fjalla One", sans-serif;
+$primary-color: black;
+$gren-background: #3ea66b;
+$yellow-sign: #ffd83f;
+$orange-button: #ff6953;
+$blue-background: #2ba3dc;
+$beige-background: #fffbe0;
+
+main {
+  font-family: $font-text;
+  font-weight: 400;
+  font-style: normal;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: 80px;
+
+  width: 100vw;
+
+  section {
+    width: 40vw;
+    text-align: center;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-family: $font-title;
+      font-weight: 400;
+      font-style: normal;
+
+      letter-spacing: 0.2em;
+
+      display: inline-block;
+      border: 1px solid $primary-color;
+      border-radius: 2em;
+      background-color: $yellow-sign;
+      color: $orange-button;
+      text-shadow: 1px 1px 1px $primary-color, -1px 1px 1px $primary-color,
+        1px -1px 1px $primary-color, -1px 1px 1px $primary-color;
+
+      font-size: 4em;
+
+      /* margin: 3em; */
+      padding: 0.5em 2.5em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+
+      transform: rotate(-10deg);
+    }
+
+    h1:hover {
+      transform: rotate(710deg);
+      transition: all 1s ease-in-out;
+    }
+
+    p {
+      display: inline-block;
+      font-size: 3em;
+      width: 20ch;
+      text-align: center;
+    }
+
+    form {
+      button {
+        color: $primary-color;
+        background-color: #2ba3dc;
+
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0px 0.25em #005b85;
+
+        font-size: 2em;
+
+        padding: 0.5em 2em;
+      }
+
+      button:hover {
+        background-color: $orange-button;
+      }
+    }
+  }
+
+  .list-of-quizzes {
+    div {
+      font-size: 1.5em;
+      background-color: #fffbe0;
+      border: 4px solid $primary-color;
+
+      height: 9vh;
+
+      margin: 1em;
+
+      a {
+        display: block;
+
+        font-size: 1.5em;
+        text-decoration: none;
+        color: $primary-color;
+
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+    }
+
+    button {
+      font-size: 1.5em;
+      background-color: $orange-button;
+      border: none;
+      text-decoration: none;
+
+      margin-top: 0.5em;
+
+      width: 50%;
+      height: 2em;
+
+      border-radius: 12px;
+      box-shadow: 0px 0.25em $yellow-sign;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+      }
+    }
+
+    button:hover {
+      background-color: $blue-background;
+    }
+  }
+}
