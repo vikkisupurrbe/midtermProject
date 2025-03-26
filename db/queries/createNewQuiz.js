@@ -14,7 +14,7 @@ const createQuiz = function (userID, quizData) {
       userID, 
       quizData.title, 
       quizData.description || '', 
-      quizData.isPublic || true
+      quizData.isPublic
     ])
     .then(quizResult => {
       // Extract the newly created quiz ID
