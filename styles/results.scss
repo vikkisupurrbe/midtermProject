@@ -9,5 +9,20 @@ $beige-background: #FFFBE0;
 
 body{
   margin-top: 100px;
+  display: flexbox;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+
+  main{
+    width: 100%;
+    max-width: 1024px;
+    margin-bottom: 1em;
+  }
+
+
+  footer{
+align-self: flex-end;
+  }
 }
 
