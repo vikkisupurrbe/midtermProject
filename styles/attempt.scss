@@ -6,10 +6,10 @@ $yellow-sign: #FFD83F;
 $orange-button: #FF6953;
 $blue-background: #2BA3DC;
 $beige-background: #FFFBE0;
-
-body{
-  background-color: $gren-background;
-}
+$border: 2px solid $primary-color;
+$padding-small: .5em;
+$margin-small: .5em;
+$border-radius-small: 2px;
 
 form {
   display: flex;
@@ -26,11 +26,11 @@ form {
     text-align: center;
   }
 
-  h1{
+  h1 {
     background-color: $yellow-sign;
-    padding: .5em;
-    border: 2px solid black;
-    border-radius: 2px;
+    padding: $padding-small;
+    border: $border;
+    border-radius: $border-radius-small;
     width: 15em;
   }
 
@@ -42,63 +42,63 @@ form {
     margin: 15px;
     align-items: center;
 
-
     input[type="radio"] {
       display: none;
       align-items: center;
+    }
+
+    label {
+      @extend %interactive-label; // Using extend for common styles
+      background-color: $beige-background;
+      border-radius: $border-radius-small;
+      font-size: 1em;
+      width: 300px;
+      height: 50px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked + label {
+      background-color: $orange-button; // orange when selected
+      color: white;
+      border: $border;
+      border-radius: $border-radius-small;
     }
   }
 
   legend {
     font-weight: bold;
     display: inline-flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    padding: .5em 1em;
+    justify-content: center;
+    align-items: center;
+    padding: $padding-small 1em;
     background-color: $blue-background;
-    padding: .5em;
-    border: 2px solid black;
+    border: $border;
     align-content: center;
     width: 30em;
     height: 3em;
   }
 
-  fieldset label {
-    display: inline-flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    text-align: center;
-    margin: .5em;
-    padding: .5em 1em;
-    background-color: $beige-background;
-    border: 2px solid black;
-    border-radius: 2px;
-    font-size: 1em;
-    width: 300px;
-    height: 50px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
-
-  }
-
-  fieldset input[type="radio"]:checked + label {
-    background-color: $orange-button;  //orange when selected
-    color: white;
-    border: 2px solid black;
-    border-radius: 2px;
-  }
-
-
   button {
     font-size: 1em;
-    background-color: #ff6953;
+    background-color: $orange-button;
     border: none;
     text-decoration: none;
-    margin-top: 0.5em;
+    margin-top: $margin-small;
     width: 30%;
     height: 2em;
     border-radius: 12px;
-    box-shadow: 0px 0.25em #ffd83f;
+    box-shadow: 0px 0.25em $yellow-sign;
   }
 }
 
+// Placeholder for common label styles
+%interactive-label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: $margin-small;
+  padding: $padding-small 1em;
+  border: $border;
+}
