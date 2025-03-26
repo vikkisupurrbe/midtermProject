@@ -7,7 +7,7 @@ const createQuiz = function (userID, quizData) {
     const quizInsertQuery = `
       INSERT INTO quizzes (owner_id, title, description, is_public)
       VALUES ($1, $2, $3, $4)
-      RETURNING id
+      RETURNING *
     `;
     
     db.query(quizInsertQuery, [
@@ -26,7 +26,7 @@ const createQuiz = function (userID, quizData) {
         const questionInsertQuery = `
           INSERT INTO questions (quiz_id, question_text)
           VALUES ($1, $2)
-          RETURNING id
+          RETURNING *
         `;
         
         return db.query(questionInsertQuery, [quizId, question.text])
@@ -39,7 +39,7 @@ const createQuiz = function (userID, quizData) {
               const answerInsertQuery = `
                 INSERT INTO answers (question_id, answer_text, is_correct)
                 VALUES ($1, $2, $3)
-                RETURNING id
+                RETURNING *
               `;
               
               return db.query(answerInsertQuery, [

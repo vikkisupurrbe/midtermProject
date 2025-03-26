@@ -65,7 +65,6 @@ router.post("/", requireLogin, (req, res) => {
     // Create quiz using the logged-in user's ID
     dbCreateNewQuiz.createQuiz(res.locals.user.id, quizData)
       .then(quizId => {
-        console.log("=================New quiz created");
         // Redirect to the newly created quiz
         res.redirect(`/quizzes/${quizId}`);
       })
