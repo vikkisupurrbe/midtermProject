@@ -1,0 +1,104 @@
+$font-text: "Gidole", sans-serif;
+$font-title: "Fjalla One", sans-serif;
+$primary-color: black;
+$gren-background: #3EA66B;
+$yellow-sign: #FFD83F;
+$orange-button: #FF6953;
+$blue-background: #2BA3DC;
+$beige-background: #FFFBE0;
+
+body{
+  background-color: $gren-background;
+}
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-family: $font-text;
+
+  .quiz-description {
+    font-family: $font-title;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  h1{
+    background-color: $yellow-sign;
+    padding: .5em;
+    border: 2px solid black;
+    border-radius: 2px;
+    width: 15em;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border: none;
+    margin: 15px;
+    align-items: center;
+
+
+    input[type="radio"] {
+      display: none;
+      align-items: center;
+    }
+  }
+
+  legend {
+    font-weight: bold;
+    display: inline-flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: .5em 1em;
+    background-color: $blue-background;
+    padding: .5em;
+    border: 2px solid black;
+    align-content: center;
+    width: 30em;
+    height: 3em;
+  }
+
+  fieldset label {
+    display: inline-flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    text-align: center;
+    margin: .5em;
+    padding: .5em 1em;
+    background-color: $beige-background;
+    border: 2px solid black;
+    border-radius: 2px;
+    font-size: 1em;
+    width: 300px;
+    height: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+
+  }
+
+  fieldset input[type="radio"]:checked + label {
+    background-color: $orange-button;  //orange when selected
+    color: white;
+    border: 2px solid black;
+    border-radius: 2px;
+  }
+
+
+  button {
+    font-size: 1em;
+    background-color: #ff6953;
+    border: none;
+    text-decoration: none;
+    margin-top: 0.5em;
+    width: 30%;
+    height: 2em;
+    border-radius: 12px;
+    box-shadow: 0px 0.25em #ffd83f;
+  }
+}
+

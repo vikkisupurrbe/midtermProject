@@ -9,8 +9,17 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/attempt.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Gidole&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
@@ -22,8 +31,12 @@
       method="POST"
       action="/quizzes/attempt/<%= results.quiz_data.quiz_id %>"
     >
-      <h1 id="title"><%= results.quiz_data.quiz_title %></h1>
-      <label id="description"><%= results.quiz_data.quiz_description %></label>
+      <div class="quiz-description">
+        <h1 id="title"><%= results.quiz_data.quiz_title %></h1>
+        <label id="description"
+          ><%= results.quiz_data.quiz_description %></label
+        >
+      </div>
       <div class="quizz-container">
         <fieldset>
           <% for(let question of results.quiz_data.questions) { %>
