@@ -1,8 +1,7 @@
 const db = require("../connection");
 
-
 // Helper function to store results
-const createResult = function(resultObj) {
+const createResult = function (resultObj) {
   const queryString = `INSERT INTO results (quiz_id, user_id, name, correct_answers, url_key)
    VALUES ($1, $2, $3, $4, $5)
    RETURNING *;
@@ -24,7 +23,7 @@ const createResult = function(resultObj) {
 };
 
 // Helper function to retrieve results by URL key
-const getResultsByUrl = function(url_key) {
+const getResultsByUrl = function (url_key) {
   const queryString = `
   SELECT
     results.correct_answers,

@@ -9,7 +9,7 @@ const getAllQuizzes = () => {
   });
 };
 
-const getLatestQuizzes = (limit = 7) => {
+const getLatestQuizzes = (limit = 5) => {
   const queryString =
     "SELECT * FROM quizzes WHERE is_public = TRUE ORDER BY id DESC  LIMIT $1;";
   const queryArgs = [limit];

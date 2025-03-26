@@ -70,7 +70,7 @@ main {
     form {
       button {
         color: $primary-color;
-        background-color: #2ba3dc;
+        background-color: $blue-background;
 
         border: none;
         border-radius: 12px;
@@ -92,6 +92,7 @@ main {
       font-size: 1.5em;
       background-color: #fffbe0;
       border: 4px solid $primary-color;
+      border-radius: 12px;
 
       height: 9vh;
 

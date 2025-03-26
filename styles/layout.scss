@@ -1,6 +1,11 @@
 // See: https://sass-lang.com/
+$gren-background: #3ea66b;
 
 body,
 html {
   margin: 0;
+}
+
+body {
+  background-color: $gren-background;
 }
