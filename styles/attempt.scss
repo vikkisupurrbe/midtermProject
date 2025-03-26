@@ -8,8 +8,7 @@ $blue-background: #2BA3DC;
 $beige-background: #FFFBE0;
 $border: 2px solid $primary-color;
 $padding-small: .5em;
-$margin-small: .5em;
-$border-radius-small: 2px;
+$border-radius-small: 3px;
 
 form {
   display: flex;
@@ -39,12 +38,25 @@ form {
     flex-direction: column;
     padding: 1em;
     border: none;
-    margin: 15px;
-    align-items: center;
 
     input[type="radio"] {
       display: none;
       align-items: center;
+    }
+
+    legend {
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      background-color: $blue-background;
+      border: $border;
+      border-radius: $border-radius-small;
+      width: 30em;
+      height: 3em;
+      margin-bottom: 10px;
+      margin-top: 2em;
     }
 
     label {
@@ -52,9 +64,9 @@ form {
       background-color: $beige-background;
       border-radius: $border-radius-small;
       font-size: 1em;
-      width: 300px;
+      margin-bottom: 10px;
+      width: 100%;
       height: 50px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
       cursor: pointer;
     }
 
@@ -66,31 +78,26 @@ form {
     }
   }
 
-  legend {
-    font-weight: bold;
-    display: inline-flex;
+  button {
+    display: flex;
+    text-align: center;
+    align-content: center;
     justify-content: center;
     align-items: center;
-    padding: $padding-small 1em;
-    background-color: $blue-background;
-    border: $border;
-    align-content: center;
-    width: 30em;
-    height: 3em;
-  }
-
-  button {
     font-size: 1em;
     background-color: $orange-button;
     border: none;
     text-decoration: none;
-    margin-top: $margin-small;
     width: 30%;
     height: 2em;
     border-radius: 12px;
     box-shadow: 0px 0.25em $yellow-sign;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
   }
 }
+
 
 // Placeholder for common label styles
 %interactive-label {
@@ -98,7 +105,5 @@ form {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: $margin-small;
-  padding: $padding-small 1em;
   border: $border;
 }
