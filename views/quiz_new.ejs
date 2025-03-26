@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Users</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/users.js"></script>
+</head>
+
+<body>
+
+  <form action="/quizzes" method="POST">
+    <div>
+        <label for="title">Quiz Title:</label>
+        <input type="text" id="title" name="title" required maxlength="255">
+    </div>
+    
+    <div>
+        <label for="description">Description (Optional):</label>
+        <textarea id="description" name="description" maxlength="500"></textarea>
+    </div>
+    
+    <div>
+        <label for="isPublic">Make this quiz public?</label>
+        <input type="checkbox" id="isPublic" name="isPublic" checked>
+    </div>
+  
+    <% for (let q = 0; q < 5; q++) { %>
+        <fieldset>
+            <legend>Question <%= q + 1 %></legend>
+            
+            <div>
+                <label for="question-<%= q %>">Question Text:</label>
+                <textarea 
+                    id="question-<%= q %>" 
+                    name="questions[<%= q %>][text]" 
+                    required
+                ></textarea>
+            </div>
+  
+            <% for (let a = 0; a < 4; a++) { %>
+                <div>
+                    <label for="answer-<%= q %>-<%= a %>">
+                        Answer <%= a + 1 %>:
+                    </label>
+                    <input 
+                        type="text" 
+                        id="answer-<%= q %>-<%= a %>" 
+                        name="questions[<%= q %>][answers][<%= a %>][text]" 
+                        required
+                    >
+                    <input 
+                        type="radio" 
+                        name="questions[<%= q %>][correctAnswer]" 
+                        value="<%= a %>" 
+                        required
+                    > Correct Answer
+                </div>
+            <% } %>
+        </fieldset>
+    <% } %>
+  
+    <button type="submit">Create Quiz</button>
+  </form>
+
+</body>
