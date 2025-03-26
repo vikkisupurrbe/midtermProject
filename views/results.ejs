@@ -38,13 +38,11 @@
       <h1>Here are your results for</h1>
       <h3 id="title"><%= results.title %></h3>
       <h4 id="name"><%= results.name %></h4>
-      <section class="final-result">
-        <span>You've got:</span><br />
-        <div class="results">
-          <label id="correct-answers"><%= results.correct_answers %></label>/
-          <label id="total-questions"><%= results.total_questions %></label>
-        </div>
-      </section>
+      <span>You've got:</span><br />
+      <div class="results">
+        <label id="correct-answers"><%= results.correct_answers %></label>/
+        <label id="total-questions"><%= results.total_questions %></label>
+      </div>
       <button id="share-results">Share my results</button>
     </main>
     <footer><button id="share-quiz">Share this quizz!</button></footer>
