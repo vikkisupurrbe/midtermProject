@@ -24,25 +24,30 @@
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/share_results.js"></script>
     <% if (results !== null) { %>
-    <script>const quizURL = `/quizzes/attempt/<%= results.quiz_id %>` </script>
+    <script>
+      const quizURL = `/quizzes/attempt/<%= results.quiz_id %>`;
+    </script>
     <% }; %>
   </head>
 
   <body>
-    <%- include('partials/_header') %>
-    <% if (results === null) { %>
-      <span> Results not available! </span>
+    <%- include('partials/_header') %> <% if (results === null) { %>
+    <span> Results not available! </span>
     <%} else {%>
     <main>
-    <h1>Here are your results for</h1>
-    <h3><label id="title"><%= results.title %></label></h3x>
-    <label id="name"><%= results.name %></label>
-    <label id="correct-answers"><%= results.correct_answers %></label>/
-    <label id="total-questions"><%= results.total_questions %></label>
-
-    <button id="share-results">Share my results</button>
-  </main>
+      <h1>Here are your results for</h1>
+      <h3 id="title"><%= results.title %></h3>
+      <h4 id="name"><%= results.name %></h4>
+      <section class="final-result">
+        <span>You've got:</span><br />
+        <div class="results">
+          <label id="correct-answers"><%= results.correct_answers %></label>/
+          <label id="total-questions"><%= results.total_questions %></label>
+        </div>
+      </section>
+      <button id="share-results">Share my results</button>
+    </main>
+    <footer><button id="share-quiz">Share this quizz!</button></footer>
   </body>
-  <footer><button id="share-quiz">Share this quizz!</button></footer>
   <%} %>
 </html>
