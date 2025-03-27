@@ -46,9 +46,9 @@ Quizzas is a fun, interactive, and shareable quiz platform that allows you to at
 This project is more than just a quiz app—it’s a labor of love, code, and caffeine. ☕ Our team worked tirelessly to bring **Quizzas** to life, tackling everything from **database design** to **front-end styling**, and ensuring the experience is both **smooth and fun**. Every button, every route, and every quiz question represents hours of collaboration, debugging, and creative problem-solving.  
 
 ## Final product
-!["Main page"]()
-!["List of quizzes"]()
-!["Login"]()
-!["Attempt a quiz"]()
-!["Create a quizz"]()
-!["Results"]()
+!["Main page"](https://raw.githubusercontent.com/vikkisupurrbe/midtermProject/refs/heads/master/docs/main.png)
+!["List of quizzes"](https://raw.githubusercontent.com/vikkisupurrbe/midtermProject/refs/heads/master/docs/list_of_quizzes.png)
+!["Login"](https://raw.githubusercontent.com/vikkisupurrbe/midtermProject/refs/heads/master/docs/login.png)
+!["Attempt a quiz"](https://raw.githubusercontent.com/vikkisupurrbe/midtermProject/refs/heads/master/docs/attempt_quiz.png)
+!["Create a quizz"](https://raw.githubusercontent.com/vikkisupurrbe/midtermProject/refs/heads/master/docs/create_quiz.png)
+!["Results"](https://raw.githubusercontent.com/vikkisupurrbe/midtermProject/refs/heads/master/docs/results.png)
