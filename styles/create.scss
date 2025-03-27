@@ -42,7 +42,8 @@ form.create-quiz-form {
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 12px;
-  }
+    resize: none;
+    }
 
   .create-quiz-btn {
     width: 50%;
