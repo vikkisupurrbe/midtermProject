@@ -1,14 +1,5 @@
-// Taking a Quiz - Ale
+// Taking a Quiz
 // Submit a quiz
-
-/* Remember to create your feature branch before starting
-  git command:
-  ~ git checkout -b feature/quiz-attempt-ale
-    (create and switch to a new branch)
-  ~ git branch
-    (gives feature/quiz-attempt-ale)
-  ~ git push origin feature/quiz-attempt-ale
-*/
 
 const express = require('express');
 const router  = express.Router();

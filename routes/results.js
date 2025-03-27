@@ -1,15 +1,6 @@
-// Results & Score Sharing - Ale
+// Results & Score Sharing
 // View my results
 // Share my results
-
-/* Remember to create your feature branch before starting
-  git command:
-  ~ git checkout -b feature/quiz-results-ale
-    (create and switch to a new branch)
-  ~ git branch
-    (gives feature/quiz-results-ale)
-  ~ git push origin feature/quiz-results-ale
-*/
 
 const express = require('express');
 const router  = express.Router();

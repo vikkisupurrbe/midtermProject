@@ -1,16 +1,7 @@
-// Quiz Discovery & Access - Jumpei
+// Quiz Discovery & Access
 // View public quizzes
 // View public quizzes on the home page
 // Share a quiz
-
-/* Remember to create your feature branch before starting
-  git command:
-  ~ git checkout -b feature/quiz-discovery-jumpei
-    (create and switch to a new branch)
-  ~ git branch
-    (gives feature/quiz-discovery-jumpei)
-  ~ git push origin feature/quiz-discovery-jumpei
-*/
 
 const express = require("express");
 const { getAllQuizzes, getLatestQuizzes } = require("../db/queries/quizzes");
