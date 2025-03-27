@@ -1,0 +1,93 @@
+$font-text: "Gidole", sans-serif;
+$font-title: "Fjalla One", sans-serif;
+$primary-color: black;
+$green-background: #3EA66B;
+$yellow-sign: #FFD83F;
+$orange-button: #FF6953;
+$blue-background: #2BA3DC;
+$beige-background: #FFFBE0;
+
+body {
+  background-color: #3EA66B;
+  font-family: "Gidole", sans-serif;;
+  font-size: 1em;
+}
+
+form.create-quiz-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #FFFBE0;
+  padding: 20px;
+  border: 4px solid $primary-color;
+  border-radius: 12px;
+
+  fieldset {
+    margin-top: 20px;
+    border: 1px solid $primary-color;
+    border-radius: 12px
+  }
+
+  legend {
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+  }
+
+  .create-quiz-btn {
+    width: 50%;
+    background: #2BA3DC;
+    color: white;
+    padding: 10px 15px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 0.25em #005b85;
+    cursor: pointer;
+
+    &:hover {
+      background: $orange-button;
+    }
+  }
+
+  div.question {
+    margin-top: 10px;
+  }
+
+  div.answer {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+
+    input[type="text"] {
+      max-width: 350px;
+    }
+
+    input[type="radio"] {
+      width: auto;
+    }
+  }
+
+  div.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input[type="checkbox"] {
+      width: auto;
+      margin: 0
+    }
+  }
+}
