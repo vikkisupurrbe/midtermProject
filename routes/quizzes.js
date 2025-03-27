@@ -1,15 +1,6 @@
-// Quiz Creation & Management - Vikki
+// Quiz Creation & Management
 // Create a quiz
 // Make a quiz unlisted (at the time of creation)
-
-/* Remember to create your feature branch before starting 
-  git command:
-  ~ git checkout -b feature/quiz-creation-vikki 
-    (create and switch to a new branch)
-  ~ git branch 
-    (gives feature/quiz-creation-vikki)
-  ~ git push origin feature/quiz-creation-vikki
-*/
 
 const express = require('express');
 const router  = express.Router();
