@@ -8,7 +8,7 @@ $blue-background: #2BA3DC;
 $beige-background: #FFFBE0;
 $border: 2px solid $primary-color;
 $padding-small: .5em;
-$border-radius-small: 3px;
+$border-radius-small: 12px;
 $button-radius: 12px;
 $button-shadow-yellow: 0px 0.25em $yellow-sign;
 $button-padding-y: 1em;
@@ -16,7 +16,7 @@ $button-padding-x: 2em;
 
 body {
   position: relative;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 main {
@@ -46,6 +46,7 @@ h1 {
 .results {
   @extend %centered-flex;
   flex-direction: row;
+  font-size: 2em;
 }
 
 %button-base {
@@ -57,7 +58,7 @@ h1 {
 
 #share-results {
   @extend %button-base;
-  font-size: .8em;
+  font-size: 1em;
   background-color: $orange-button;
   height: 2em;
   margin: 1em auto 3em;
