@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
     <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/quizzes.css" />
 
@@ -21,17 +22,21 @@
     <%- include('partials/_header') %>
     <!-- Include the header -->
 
-    <h1>List of Quizzes</h1>
+    <section class="all-list">
+      <h1>List of Quizzes</h1>
 
-    <% for (const quiz of result) { %>
-    <div>
-      <header><%= quiz.title %></header>
-      <article><%= quiz.description %></article>
-      <p>Creator: <%= quiz.username %></p>
-      <footer>
-        <a href="/quizzes/<%= quiz.id%>">take this quiz</a>
-      </footer>
-    </div>
-    <% } %>
+      <% for (const quiz of result) { %>
+      <div>
+        <p class="title"><%= quiz.title %></p>
+        <article><%= quiz.description %></article>
+        <p>Creator: <%= quiz.username %></p>
+        <footer>
+          <button>
+            <a href="/quizzes/<%= quiz.id%>">Attempt This Quiz</a>
+          </button>
+        </footer>
+      </div>
+      <% } %>
+    </section>
   </body>
 </html>

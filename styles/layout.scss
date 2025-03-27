@@ -1,7 +1,12 @@
 // See: https://sass-lang.com/
+$gren-background: #3ea66b;
 
 body,
 html {
   margin: 0;
   background-color: #3EA66B;;
+}
+
+body {
+  background-color: $gren-background;
 }
