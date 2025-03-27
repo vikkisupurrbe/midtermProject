@@ -25,7 +25,7 @@
     <script defer src="/scripts/share_results.js"></script>
     <% if (results !== null) { %>
     <script>
-      const quizURL = `/quizzes/attempt/<%= results.quiz_id %>`;
+      const quizURL = `http://localhost:8080/quizzes/attempt/<%= results.quiz_id %>`;
     </script>
     <% }; %>
   </head>
