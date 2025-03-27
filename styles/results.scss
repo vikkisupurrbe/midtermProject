@@ -1,28 +1,97 @@
-$font-text:  "Gidole", sans-serif;
-$font-title:  "Fjalla One", sans-serif;
+$font-text: "Gidole", sans-serif;
+$font-title: "Fjalla One", sans-serif;
 $primary-color: black;
 $gren-background: #3EA66B;
 $yellow-sign: #FFD83F;
 $orange-button: #FF6953;
+$blue-background: #2BA3DC;
 $beige-background: #FFFBE0;
+$border: 2px solid $primary-color;
+$padding-small: .5em;
+$border-radius-small: 3px;
+$button-radius: 12px;
+$button-shadow-yellow: 0px 0.25em $yellow-sign;
+$button-padding-y: 1em;
+$button-padding-x: 2em;
 
+body {
+  position: relative;
+  font-size: 1.5em;
+}
 
-body{
-  margin-top: 100px;
-  display: flexbox;
+main {
+  font-family: $font-text;
+  display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  align-items: center;
   align-content: center;
+}
 
-  main{
-    width: 100%;
-    max-width: 1024px;
-    margin-bottom: 1em;
-  }
+h1 {
+  @extend %centered-flex;
+  font-family: $font-title;
+  background-color: $yellow-sign;
+  padding: $padding-small;
+  border: $border;
+  border-radius: $border-radius-small;
+  width: 15em;
+  margin-bottom: 0;
+}
 
+.title {
+  font-family: $font-title;
+}
 
-  footer{
-align-self: flex-end;
+.results {
+  @extend %centered-flex;
+  flex-direction: row;
+}
+
+%button-base {
+  border: none;
+  text-decoration: none;
+  border-radius: $button-radius;
+  box-shadow: $button-shadow-yellow;
+}
+
+#share-results {
+  @extend %button-base;
+  font-size: .8em;
+  background-color: $orange-button;
+  height: 2em;
+  margin: 1em auto 3em;
+  max-width: 10em;
+  padding: 0 .5em;
+
+  &:hover {
+    background-color: $blue-background;
   }
 }
 
+footer {
+  position: fixed;
+  right: 2em;
+}
+
+#share-quiz {
+  @extend %button-base;
+  color: $primary-color;
+  background-color: $yellow-sign;
+  font-size: 1em;
+  padding: $button-padding-y;
+
+  box-shadow: 0px 0.25em #005b85; /* Specific shadow for this button */
+
+  &:hover {
+    background-color: $orange-button;
+  }
+}
+
+// Placeholder for centering flex elements
+%centered-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

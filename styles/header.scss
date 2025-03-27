@@ -4,11 +4,12 @@ $primary-color: black;
 $gren-background: #3ea66b;
 $yellow-sign: #ffd83f;
 $orange-button: #ff6953;
+$blue-background: #2ba3dc;
 $beige-background: #fffbe0;
 
 header {
   font-family: $font-text;
-  background-color: #2ba3dc;
+  background-color: $blue-background;
   color: black;
   padding: 1em;
   height: 80px;
@@ -17,22 +18,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
-    max-width: 1200px; // Limit the width of the nav container
-    margin: 0 auto; // Center the container
+    margin: 0 auto; // Center container
   }
 
   .left-nav {
     display: flex;
     gap: 20px; // Space out the links
+    flex-grow: 1; // Pushes right-nav to the right
   }
 
   .right-nav {
+    font-size: 16px;
     display: flex;
     align-items: center;
     gap: 20px; // Space out the login/logout section
@@ -44,7 +41,7 @@ header {
     font-size: 16px;
 
     &:hover {
-      text-decoration: underline; // Optional hover effect
+      text-decoration: underline;
     }
   }
 
@@ -61,12 +58,12 @@ header {
     box-shadow: 0px 0.25em #ffd83f;
 
     &:hover {
-      background-color: $orange-button; // green on hover
+      background-color: $orange-button;
     }
   }
 
   p {
-    margin: 0; // Remove margin from the paragraph
+    margin: 0;
     font-size: 1em;
     font-weight: 900;
   }
