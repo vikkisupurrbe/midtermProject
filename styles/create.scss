@@ -10,13 +10,13 @@ $beige-background: #FFFBE0;
 body {
   background-color: #3EA66B;
   font-family: "Gidole", sans-serif;;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 form.create-quiz-form {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -42,7 +42,8 @@ form.create-quiz-form {
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 12px;
-  }
+    resize: none;
+    }
 
   .create-quiz-btn {
     width: 50%;

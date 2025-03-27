@@ -8,10 +8,19 @@ $blue-background: #2ba3dc;
 $beige-background: #fffbe0;
 
 header {
+  display: flex;
   font-family: $font-text;
   background-color: $blue-background;
   color: black;
   padding: 1em;
+  font-size: 25px;
+  position: fixed;
+  height: 100px;
+  top: 0;
+  width: 100vw;
+  justify-content: center;
+  border-bottom: 3px solid#005b85;
+
 
   nav {
     display: flex;
@@ -28,16 +37,15 @@ header {
   }
 
   .right-nav {
-    font-size: 16px;
     display: flex;
     align-items: center;
     gap: 20px; // Space out the login/logout section
+    margin-right: 10px;
   }
 
   a {
     color: black;
     text-decoration: none;
-    font-size: 16px;
 
     &:hover {
       text-decoration: underline;
@@ -45,7 +53,7 @@ header {
   }
 
   form button {
-    font-size: 1em;
+    font-size: 25px;
     background-color: $gren-background;
     border: none;
     text-decoration: none;
@@ -63,7 +71,6 @@ header {
 
   p {
     margin: 0;
-    font-size: 1em;
     font-weight: 900;
   }
 }
